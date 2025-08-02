@@ -16,7 +16,7 @@ const AddTask = ({ handleAdd }: AddTaskProps): JSX.Element => {
     if (inputRef.current) inputRef.current.value = '';
     navigate('/'); // Redirect to TaskList
   };
-
+  
   return (
     <div className='container'>
       <form>

@@ -16,12 +16,16 @@ const UIRoot = ():JSX.Element => {
     setTasks(prevTasks => prevTasks.filter((_, i) => i !== index));
   };
   
-  const handleEdit = (index: number) => {
+  const handleGoToEdit = (index: number) => {
     const task_text = tasks[index];
     navigate('/edit', { state: { task: task_text, index } });
   };
   
   const handleAdd = (newTask: string) => {
+    setTasks(prevTasks => [...prevTasks, newTask]);
+  };
+
+  const handleEdit = (newTask: string) => {
     setTasks(prevTasks => [...prevTasks, newTask]);
   };
 
@@ -38,9 +42,9 @@ const UIRoot = ():JSX.Element => {
       </div>
       <div className='container text-primary'>
        <Routes>
-          <Route path="/" element={<TaskList tasks={tasks} onDelete={handleDelete} onEdit={handleEdit}/>} />
+          <Route path="/" element={<TaskList tasks={tasks} onDelete={handleDelete} onEdit={handleGoToEdit}/>} />
           <Route path="/add" element={<AddTask handleAdd={handleAdd} />} />
-          <Route path="/edit" element={<EditTask />} />
+          <Route path="/edit" element={<EditTask handleEdit={handleEdit} />} />
         </Routes>
       </div>
       <br />

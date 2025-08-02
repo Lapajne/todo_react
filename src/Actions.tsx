@@ -11,5 +11,3 @@ const Actions = (): JSX.Element => {
 }
 
 export default Actions;
-
-//       <Link to="/edit" className="btn btn-secondary mx-2">Edit</Link>
